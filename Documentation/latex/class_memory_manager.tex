@@ -1,0 +1,272 @@
+\hypertarget{class_memory_manager}{}\doxysection{Memory\+Manager Class Reference}
+\label{class_memory_manager}\index{MemoryManager@{MemoryManager}}
+
+
+A class that provides memory allocation and deallocation functionality.  
+
+
+
+
+{\ttfamily \#include $<$replacement\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_memory_manager_a95b0a42acabdcd4088fadb69e4b7108f}{Memory\+Manager}} (size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{class_memory_manager}{Memory\+Manager}} object with the given size. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_memory_manager_ad4570910ccfc14b2da679bee58ee8f48}\label{class_memory_manager_ad4570910ccfc14b2da679bee58ee8f48}} 
+{\bfseries $\sim$\+Memory\+Manager} ()
+\begin{DoxyCompactList}\small\item\em Destructs a \mbox{\hyperlink{class_memory_manager}{Memory\+Manager}} object, freeing all allocated memory. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{class_memory_manager_aeb7e934dc2c2ead0fa5942d0cdbe91b7}{first\+Fit}} (size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Allocates a block of memory using the first-\/fit algorithm. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{class_memory_manager_a5a39f8a1cf39a61fc163c582bdf3c7c8}{best\+Fit}} (size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Allocates a block of memory using the best-\/fit algorithm. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{class_memory_manager_a0c9cf2e14832993f18a7d5e747f70f04}{worst\+Fit}} (size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Allocates a block of memory using the worst-\/fit algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_memory_manager_ac6a60e55f1592595d8f9a20efd6e0236}{deallocate}} (void $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Deallocates a block of memory. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_memory_manager_a678d70099452ed8b92e6faa9df7dfacf}\label{class_memory_manager_a678d70099452ed8b92e6faa9df7dfacf}} 
+void {\bfseries print\+Heap\+Map} ()
+\begin{DoxyCompactList}\small\item\em Prints a visual representation of the memory pool, showing the free and allocated blocks. \end{DoxyCompactList}\item 
+Handle \mbox{\hyperlink{class_memory_manager_a36f1281d05606495f60a4e23b3476bff}{make\+Handle}} (int n, size\+\_\+t s)
+\begin{DoxyCompactList}\small\item\em Creates a handle with the given identifier and size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_memory_manager_a3291b6c34a64f1bd2c341c074d83ddf1}{free\+Handle}} (Handle h)
+\begin{DoxyCompactList}\small\item\em Frees the memory associated with the given handle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_memory_manager_a8ae9edf15986c1ef62fbf6a050930144}{lock}} (Handle h)
+\begin{DoxyCompactList}\small\item\em Locks the block of memory associated with the given handle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_memory_manager_a648d6361f67c9563d02a0bc3bc0aa599}{unlock}} (Handle h)
+\begin{DoxyCompactList}\small\item\em Unlocks the block of memory associated with the given handle. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_memory_manager_a8f1b925441020d40aa8cb2e4ee6ec0cc}\label{class_memory_manager_a8f1b925441020d40aa8cb2e4ee6ec0cc}} 
+void {\bfseries defrag} ()
+\begin{DoxyCompactList}\small\item\em Defragments the memory heap, merging adjacent free blocks. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_memory_manager_aed7eac59d51af74b93f381ca5150070c}\label{class_memory_manager_aed7eac59d51af74b93f381ca5150070c}} 
+void {\bfseries check\+For\+Locked\+Blocks} ()
+\begin{DoxyCompactList}\small\item\em Checks the memory heap for any locked blocks and reports any found. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{class_memory_manager_a55b3691014457eeb958f76627f08a1e8}{smart\+Fit}} (size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Attempts to allocate a block of memory using a \char`\"{}smart\char`\"{} algorithm that selects the best fit block from a list of free blocks. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_memory_manager_a3ab5c48e873971b73f412daa2c3942f8}{smart\+Free}} (void $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Frees the memory associated with the given pointer using the \char`\"{}smart\char`\"{} algorithm. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{class_memory_manager_ac778a8bddcd8b1eeab562ad6306bc125}{smart\+Make\+Handle}} (int n, size\+\_\+t s)
+\begin{DoxyCompactList}\small\item\em Creates a handle using the \char`\"{}smart\char`\"{} algorithm with the given identifier and size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_memory_manager_ad9bde8ecaff4f94ef03812dfc6c23f46}\label{class_memory_manager_ad9bde8ecaff4f94ef03812dfc6c23f46}} 
+bool {\bfseries verbose}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that provides memory allocation and deallocation functionality. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_memory_manager_a95b0a42acabdcd4088fadb69e4b7108f}\label{class_memory_manager_a95b0a42acabdcd4088fadb69e4b7108f}} 
+\index{MemoryManager@{MemoryManager}!MemoryManager@{MemoryManager}}
+\index{MemoryManager@{MemoryManager}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{MemoryManager()}{MemoryManager()}}
+{\footnotesize\ttfamily Memory\+Manager\+::\+Memory\+Manager (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a \mbox{\hyperlink{class_memory_manager}{Memory\+Manager}} object with the given size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of the memory pool to allocate \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_memory_manager_a5a39f8a1cf39a61fc163c582bdf3c7c8}\label{class_memory_manager_a5a39f8a1cf39a61fc163c582bdf3c7c8}} 
+\index{MemoryManager@{MemoryManager}!bestFit@{bestFit}}
+\index{bestFit@{bestFit}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{bestFit()}{bestFit()}}
+{\footnotesize\ttfamily void $\ast$ Memory\+Manager\+::best\+Fit (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Allocates a block of memory using the best-\/fit algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of the block to allocate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the allocated block, or nullptr if allocation fails 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_memory_manager_ac6a60e55f1592595d8f9a20efd6e0236}\label{class_memory_manager_ac6a60e55f1592595d8f9a20efd6e0236}} 
+\index{MemoryManager@{MemoryManager}!deallocate@{deallocate}}
+\index{deallocate@{deallocate}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{deallocate()}{deallocate()}}
+{\footnotesize\ttfamily void Memory\+Manager\+::deallocate (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Deallocates a block of memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & A pointer to the block to deallocate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_memory_manager_aeb7e934dc2c2ead0fa5942d0cdbe91b7}\label{class_memory_manager_aeb7e934dc2c2ead0fa5942d0cdbe91b7}} 
+\index{MemoryManager@{MemoryManager}!firstFit@{firstFit}}
+\index{firstFit@{firstFit}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{firstFit()}{firstFit()}}
+{\footnotesize\ttfamily void $\ast$ Memory\+Manager\+::first\+Fit (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Allocates a block of memory using the first-\/fit algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of the block to allocate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the allocated block, or nullptr if allocation fails 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_memory_manager_a3291b6c34a64f1bd2c341c074d83ddf1}\label{class_memory_manager_a3291b6c34a64f1bd2c341c074d83ddf1}} 
+\index{MemoryManager@{MemoryManager}!freeHandle@{freeHandle}}
+\index{freeHandle@{freeHandle}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{freeHandle()}{freeHandle()}}
+{\footnotesize\ttfamily void Memory\+Manager\+::free\+Handle (\begin{DoxyParamCaption}\item[{Handle}]{h }\end{DoxyParamCaption})}
+
+
+
+Frees the memory associated with the given handle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & The handle to free. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_memory_manager_a8ae9edf15986c1ef62fbf6a050930144}\label{class_memory_manager_a8ae9edf15986c1ef62fbf6a050930144}} 
+\index{MemoryManager@{MemoryManager}!lock@{lock}}
+\index{lock@{lock}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{lock()}{lock()}}
+{\footnotesize\ttfamily void Memory\+Manager\+::lock (\begin{DoxyParamCaption}\item[{Handle}]{h }\end{DoxyParamCaption})}
+
+
+
+Locks the block of memory associated with the given handle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & The handle to lock. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_memory_manager_a36f1281d05606495f60a4e23b3476bff}\label{class_memory_manager_a36f1281d05606495f60a4e23b3476bff}} 
+\index{MemoryManager@{MemoryManager}!makeHandle@{makeHandle}}
+\index{makeHandle@{makeHandle}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{makeHandle()}{makeHandle()}}
+{\footnotesize\ttfamily Handle Memory\+Manager\+::make\+Handle (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{size\+\_\+t}]{s }\end{DoxyParamCaption})}
+
+
+
+Creates a handle with the given identifier and size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The identifier for the handle. \\
+\hline
+{\em s} & The size of the block of memory to allocate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Handle A handle to the allocated block of memory. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_memory_manager_a55b3691014457eeb958f76627f08a1e8}\label{class_memory_manager_a55b3691014457eeb958f76627f08a1e8}} 
+\index{MemoryManager@{MemoryManager}!smartFit@{smartFit}}
+\index{smartFit@{smartFit}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{smartFit()}{smartFit()}}
+{\footnotesize\ttfamily void $\ast$ Memory\+Manager\+::smart\+Fit (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Attempts to allocate a block of memory using a \char`\"{}smart\char`\"{} algorithm that selects the best fit block from a list of free blocks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of the block to allocate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void$\ast$ A pointer to the allocated block of memory. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_memory_manager_a3ab5c48e873971b73f412daa2c3942f8}\label{class_memory_manager_a3ab5c48e873971b73f412daa2c3942f8}} 
+\index{MemoryManager@{MemoryManager}!smartFree@{smartFree}}
+\index{smartFree@{smartFree}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{smartFree()}{smartFree()}}
+{\footnotesize\ttfamily void Memory\+Manager\+::smart\+Free (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Frees the memory associated with the given pointer using the \char`\"{}smart\char`\"{} algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & A pointer to the block of memory to free. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_memory_manager_ac778a8bddcd8b1eeab562ad6306bc125}\label{class_memory_manager_ac778a8bddcd8b1eeab562ad6306bc125}} 
+\index{MemoryManager@{MemoryManager}!smartMakeHandle@{smartMakeHandle}}
+\index{smartMakeHandle@{smartMakeHandle}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{smartMakeHandle()}{smartMakeHandle()}}
+{\footnotesize\ttfamily void $\ast$ Memory\+Manager\+::smart\+Make\+Handle (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{size\+\_\+t}]{s }\end{DoxyParamCaption})}
+
+
+
+Creates a handle using the \char`\"{}smart\char`\"{} algorithm with the given identifier and size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The identifier for the handle. \\
+\hline
+{\em s} & The size of the block of memory to allocate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Handle A handle to the allocated block of memory. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_memory_manager_a648d6361f67c9563d02a0bc3bc0aa599}\label{class_memory_manager_a648d6361f67c9563d02a0bc3bc0aa599}} 
+\index{MemoryManager@{MemoryManager}!unlock@{unlock}}
+\index{unlock@{unlock}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{unlock()}{unlock()}}
+{\footnotesize\ttfamily void Memory\+Manager\+::unlock (\begin{DoxyParamCaption}\item[{Handle}]{h }\end{DoxyParamCaption})}
+
+
+
+Unlocks the block of memory associated with the given handle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & The handle to unlock. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_memory_manager_a0c9cf2e14832993f18a7d5e747f70f04}\label{class_memory_manager_a0c9cf2e14832993f18a7d5e747f70f04}} 
+\index{MemoryManager@{MemoryManager}!worstFit@{worstFit}}
+\index{worstFit@{worstFit}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{worstFit()}{worstFit()}}
+{\footnotesize\ttfamily void $\ast$ Memory\+Manager\+::worst\+Fit (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Allocates a block of memory using the worst-\/fit algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of the block to allocate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the allocated block, or nullptr if allocation fails 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/mask/412/\+Prog04/\+Memory\+Manager/include/\mbox{\hyperlink{replacement_manager_8h}{replacement\+Manager.\+h}}\end{DoxyCompactItemize}

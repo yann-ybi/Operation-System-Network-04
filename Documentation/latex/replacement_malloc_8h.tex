@@ -1,0 +1,201 @@
+\hypertarget{replacement_malloc_8h}{}\doxysection{/\+Users/mask/412/\+Prog04/\+Memory\+Manager/include/replacement\+Malloc.h File Reference}
+\label{replacement_malloc_8h}\index{/Users/mask/412/Prog04/MemoryManager/include/replacementMalloc.h@{/Users/mask/412/Prog04/MemoryManager/include/replacementMalloc.h}}
+
+
+Header file for replacement\+Malloc library.  
+
+
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{replacement_malloc_8h_a88e245ff9da55fa326ba5e83cad7e4ca}\label{replacement_malloc_8h_a88e245ff9da55fa326ba5e83cad7e4ca}} 
+using {\bfseries Handle} = void $\ast$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{replacement_malloc_8h_a38464632715f95c61769340929d52817}{my\+Malloc}} (size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Replacement for malloc function. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{replacement_malloc_8h_a392202558fe2d91805545f39bfd8e189}{my\+Calloc}} (size\+\_\+t n, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Replacement for calloc function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{replacement_malloc_8h_aef8b39b5142716dd35e584f965c09d78}{my\+Free}} (void $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Replacement for free function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{replacement_malloc_8h_a1688c2b7721e158d2d99944b5dbfccc1}{verbose}} (bool v)
+\begin{DoxyCompactList}\small\item\em Enables/disables verbose output. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{replacement_malloc_8h_ac6356ad351b940b1ed38c666bef08d03}{make\+Handle}} (int n, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Creates a handle for a memory block. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{replacement_malloc_8h_acc7c0f4c8a985bbbbc8c0f03c5e227aa}{smart\+Make\+Handle}} (int n, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Creates a handle for a memory block using smart allocation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{replacement_malloc_8h_a3c52cfb0a23d32231bf015eac67ca540}{free\+Handle}} (Handle h)
+\begin{DoxyCompactList}\small\item\em Frees a handle and the associated memory block. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{replacement_malloc_8h_a5ba79797e89e0f5fdda3b9efe31c6d3f}\label{replacement_malloc_8h_a5ba79797e89e0f5fdda3b9efe31c6d3f}} 
+void {\bfseries my\+Defrag} ()
+\begin{DoxyCompactList}\small\item\em Defragments the memory pool. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{replacement_malloc_8h_add460c17009066f44d3daa996f65b658}{smart\+Fit}} (size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Smartly allocates memory block of given size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{replacement_malloc_8h_a14fd9883601059d63e242868820f9653}{smart\+Free}} (void $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Frees the memory block using smart allocation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for replacement\+Malloc library. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{replacement_malloc_8h_a3c52cfb0a23d32231bf015eac67ca540}\label{replacement_malloc_8h_a3c52cfb0a23d32231bf015eac67ca540}} 
+\index{replacementMalloc.h@{replacementMalloc.h}!freeHandle@{freeHandle}}
+\index{freeHandle@{freeHandle}!replacementMalloc.h@{replacementMalloc.h}}
+\doxysubsubsection{\texorpdfstring{freeHandle()}{freeHandle()}}
+{\footnotesize\ttfamily void free\+Handle (\begin{DoxyParamCaption}\item[{Handle}]{h }\end{DoxyParamCaption})}
+
+
+
+Frees a handle and the associated memory block. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & Handle to the memory block. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{replacement_malloc_8h_ac6356ad351b940b1ed38c666bef08d03}\label{replacement_malloc_8h_ac6356ad351b940b1ed38c666bef08d03}} 
+\index{replacementMalloc.h@{replacementMalloc.h}!makeHandle@{makeHandle}}
+\index{makeHandle@{makeHandle}!replacementMalloc.h@{replacementMalloc.h}}
+\doxysubsubsection{\texorpdfstring{makeHandle()}{makeHandle()}}
+{\footnotesize\ttfamily void $\ast$ make\+Handle (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Creates a handle for a memory block. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Arbitrary integer value to associate with the handle. \\
+\hline
+{\em size} & Size of the memory block. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Handle to the memory block. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{replacement_malloc_8h_a392202558fe2d91805545f39bfd8e189}\label{replacement_malloc_8h_a392202558fe2d91805545f39bfd8e189}} 
+\index{replacementMalloc.h@{replacementMalloc.h}!myCalloc@{myCalloc}}
+\index{myCalloc@{myCalloc}!replacementMalloc.h@{replacementMalloc.h}}
+\doxysubsubsection{\texorpdfstring{myCalloc()}{myCalloc()}}
+{\footnotesize\ttfamily void $\ast$ my\+Calloc (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Replacement for calloc function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Number of elements to allocate. \\
+\hline
+{\em size} & Size of each element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the allocated memory block. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{replacement_malloc_8h_aef8b39b5142716dd35e584f965c09d78}\label{replacement_malloc_8h_aef8b39b5142716dd35e584f965c09d78}} 
+\index{replacementMalloc.h@{replacementMalloc.h}!myFree@{myFree}}
+\index{myFree@{myFree}!replacementMalloc.h@{replacementMalloc.h}}
+\doxysubsubsection{\texorpdfstring{myFree()}{myFree()}}
+{\footnotesize\ttfamily void my\+Free (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Replacement for free function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & Pointer to the memory block to free. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{replacement_malloc_8h_a38464632715f95c61769340929d52817}\label{replacement_malloc_8h_a38464632715f95c61769340929d52817}} 
+\index{replacementMalloc.h@{replacementMalloc.h}!myMalloc@{myMalloc}}
+\index{myMalloc@{myMalloc}!replacementMalloc.h@{replacementMalloc.h}}
+\doxysubsubsection{\texorpdfstring{myMalloc()}{myMalloc()}}
+{\footnotesize\ttfamily void $\ast$ my\+Malloc (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Replacement for malloc function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Size of memory to allocate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the allocated memory block. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{replacement_malloc_8h_add460c17009066f44d3daa996f65b658}\label{replacement_malloc_8h_add460c17009066f44d3daa996f65b658}} 
+\index{replacementMalloc.h@{replacementMalloc.h}!smartFit@{smartFit}}
+\index{smartFit@{smartFit}!replacementMalloc.h@{replacementMalloc.h}}
+\doxysubsubsection{\texorpdfstring{smartFit()}{smartFit()}}
+{\footnotesize\ttfamily void $\ast$ smart\+Fit (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Smartly allocates memory block of given size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Size of the memory block. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the allocated memory block. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{replacement_malloc_8h_a14fd9883601059d63e242868820f9653}\label{replacement_malloc_8h_a14fd9883601059d63e242868820f9653}} 
+\index{replacementMalloc.h@{replacementMalloc.h}!smartFree@{smartFree}}
+\index{smartFree@{smartFree}!replacementMalloc.h@{replacementMalloc.h}}
+\doxysubsubsection{\texorpdfstring{smartFree()}{smartFree()}}
+{\footnotesize\ttfamily void smart\+Free (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Frees the memory block using smart allocation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & Pointer to the memory block to free. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{replacement_malloc_8h_acc7c0f4c8a985bbbbc8c0f03c5e227aa}\label{replacement_malloc_8h_acc7c0f4c8a985bbbbc8c0f03c5e227aa}} 
+\index{replacementMalloc.h@{replacementMalloc.h}!smartMakeHandle@{smartMakeHandle}}
+\index{smartMakeHandle@{smartMakeHandle}!replacementMalloc.h@{replacementMalloc.h}}
+\doxysubsubsection{\texorpdfstring{smartMakeHandle()}{smartMakeHandle()}}
+{\footnotesize\ttfamily void $\ast$ smart\+Make\+Handle (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Creates a handle for a memory block using smart allocation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Arbitrary integer value to associate with the handle. \\
+\hline
+{\em size} & Size of the memory block. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Handle to the memory block. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{replacement_malloc_8h_a1688c2b7721e158d2d99944b5dbfccc1}\label{replacement_malloc_8h_a1688c2b7721e158d2d99944b5dbfccc1}} 
+\index{replacementMalloc.h@{replacementMalloc.h}!verbose@{verbose}}
+\index{verbose@{verbose}!replacementMalloc.h@{replacementMalloc.h}}
+\doxysubsubsection{\texorpdfstring{verbose()}{verbose()}}
+{\footnotesize\ttfamily void verbose (\begin{DoxyParamCaption}\item[{bool}]{v }\end{DoxyParamCaption})}
+
+
+
+Enables/disables verbose output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & True to enable verbose output, false to disable it. \\
+\hline
+\end{DoxyParams}

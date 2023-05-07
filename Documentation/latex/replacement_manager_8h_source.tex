@@ -1,0 +1,91 @@
+\hypertarget{replacement_manager_8h_source}{}\doxysection{replacement\+Manager.\+h}
+\label{replacement_manager_8h_source}\index{/Users/mask/412/Prog04/MemoryManager/include/replacementManager.h@{/Users/mask/412/Prog04/MemoryManager/include/replacementManager.h}}
+\mbox{\hyperlink{replacement_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ REPLACEMENTMANAGER\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ REPLACEMENTMANAGER\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{using\ }Handle\ =\ \textcolor{keywordtype}{void}*;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_block}{Block}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ isFree;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ isLocked;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size;}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{struct_block}{Block}}*\ next;}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_memory_manager}{MemoryManager}}\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{struct_block}{Block}}*\ head;}
+\DoxyCodeLine{00037\ \ \ \ \ std::vector<void*>\ masterPtrs;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ std::vector<Block*>\ smallList;}
+\DoxyCodeLine{00040\ \ \ \ \ std::vector<Block*>\ mediumList;}
+\DoxyCodeLine{00041\ \ \ \ \ std::vector<Block*>\ largeList;}
+\DoxyCodeLine{00042\ \ \ \ \ std::vector<Block*>\ veryLargeList;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{struct_block}{Block}}*\ findFreeBlock(\textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ splitBlock(\mbox{\hyperlink{struct_block}{Block}}*\ block,\ \textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ mergeBlocks();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ verbose;}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{class_memory_manager_a95b0a42acabdcd4088fadb69e4b7108f}{MemoryManager}}(\textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ head\ =\ (\mbox{\hyperlink{struct_block}{Block}}*)\ malloc(size);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ head-\/>isFree\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ head-\/>isLocked\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ head-\/>size\ =\ size\ -\/\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_block}{Block}});}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ head-\/>next\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{replacement_malloc_8h_a1688c2b7721e158d2d99944b5dbfccc1}{verbose}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ smallList.reserve(128);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ mediumList.reserve(64);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ largeList.reserve(32);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ veryLargeList.reserve(16);}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{class_memory_manager_ad4570910ccfc14b2da679bee58ee8f48}{\string~MemoryManager}}()\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{operator}\ \textcolor{keyword}{delete}(head);}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_memory_manager_aeb7e934dc2c2ead0fa5942d0cdbe91b7}{firstFit}}(\textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_memory_manager_a5a39f8a1cf39a61fc163c582bdf3c7c8}{bestFit}}(\textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_memory_manager_a0c9cf2e14832993f18a7d5e747f70f04}{worstFit}}(\textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_memory_manager_ac6a60e55f1592595d8f9a20efd6e0236}{deallocate}}(\textcolor{keywordtype}{void}*\ ptr);}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_memory_manager_a678d70099452ed8b92e6faa9df7dfacf}{printHeapMap}}();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00126\ \ \ \ \ Handle\ \mbox{\hyperlink{class_memory_manager_a36f1281d05606495f60a4e23b3476bff}{makeHandle}}(\textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{size\_t}\ s);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_memory_manager_a3291b6c34a64f1bd2c341c074d83ddf1}{freeHandle}}(Handle\ h);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_memory_manager_a8ae9edf15986c1ef62fbf6a050930144}{lock}}(Handle\ h);\ }
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_memory_manager_a648d6361f67c9563d02a0bc3bc0aa599}{unlock}}(Handle\ h);\ }
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_memory_manager_a8f1b925441020d40aa8cb2e4ee6ec0cc}{defrag}}();\ }
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_memory_manager_aed7eac59d51af74b93f381ca5150070c}{checkForLockedBlocks}}();}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_memory_manager_a55b3691014457eeb958f76627f08a1e8}{smartFit}}(\textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_memory_manager_a3ab5c48e873971b73f412daa2c3942f8}{smartFree}}(\textcolor{keywordtype}{void}*\ ptr);}
+\DoxyCodeLine{00174\ \ \ \ \ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_memory_manager_ac778a8bddcd8b1eeab562ad6306bc125}{smartMakeHandle}}(\textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{size\_t}\ s);}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \};}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ }
+
+\end{DoxyCode}
